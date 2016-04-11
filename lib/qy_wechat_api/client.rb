@@ -14,6 +14,7 @@ module QyWechatApi
       @corp_id   = corp_id
       @redis_key = security_redis_key((redis_key || "qy_#{group_secret}"))
       @storage   = Storage.init_with(self)
+      @expired_at = Time.now.to_i
       super() # Monitor#initialize
     end
 
